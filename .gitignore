@@ -4,3 +4,4 @@ __pycache__/
 *.pt
 *.pth
 instant-ngp/
+instant-ngp2/

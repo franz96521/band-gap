@@ -340,7 +340,7 @@ def read(file_name, file_format=None):
                 molecules.append(Molecule(atomic_numbers, positions))
         return molecules
     else:
-        if (file_format is 'xyz' or
+        if (file_format == 'xyz' or
                 (file_format is None and file_name.endswith('.xyz'))):
             with open(file_name, 'r') as input_file:
                 file_content = input_file.readlines()
@@ -501,7 +501,15 @@ def export(molecule, file_name, width=500, height=500,
     gr3.export(file_name, width, height)
     glBindFramebuffer(GL_FRAMEBUFFER, 0)
     glDisable(GL_DEPTH_TEST)
-    return gr3.getviewmatrix()
+    
+    m = gr3.getviewmatrix().T
+    m[:3,3] = camera[0]
+    # print(m)
+    # print(camera)
+    
+    # m[:3,3] = camera
+    
+    return m
 
 
 def _set_gr3_camera():
