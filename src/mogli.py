@@ -504,9 +504,20 @@ def export(molecule, file_name, width=500, height=500,
     gr3.export(file_name, width, height)
     glBindFramebuffer(GL_FRAMEBUFFER, 0)
     glDisable(GL_DEPTH_TEST)
+<<<<<<< HEAD
     m = gr3.getviewmatrix().T
     
     m[:3,3] =  camerapos / distance
+=======
+    
+    m = gr3.getviewmatrix().T
+    m[:3,3] = camera[0]
+    # print(m)
+    # print(camera)
+    
+    # m[:3,3] = camera
+    
+>>>>>>> 5624cb4b1ed1428910ae9b61aea9d5268c540af4
     return m
 
 
