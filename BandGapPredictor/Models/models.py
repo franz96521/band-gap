@@ -3,7 +3,7 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-import path
+# import path
 import sys
 import os 
 # directory reach
@@ -81,6 +81,7 @@ class BandGap(pl.LightningModule):
         self.save_hyperparameters()        
         self.loss = RMSELoss()
         self.r2score = R2Score()
+        self.MAE = nn.L1Loss()
         self.model = CNNModel()
     def forward(self, x):
         return self.model(x)
@@ -102,8 +103,10 @@ class BandGap(pl.LightningModule):
         y_hat = self(x)
         loss = self.loss(y_hat, y)
         r2 = self.r2score(y_hat, y)
+        mae = self.MAE(y_hat, y)
         self.log("train_loss", loss, prog_bar=True, on_step=True)
         self.log("train_r2", r2, prog_bar=True, on_step=True)
+        self.log("train_MAE",mae , prog_bar=True, on_step=True)
         return {"loss": loss, "log": {"train_loss": loss, "train_r2": r2}}
 
     def validation_step(self, batch, batch_idx):
@@ -112,8 +115,10 @@ class BandGap(pl.LightningModule):
         y_hat = self(x)
         loss = self.loss(y_hat, y)
         r2 = self.r2score(y_hat, y)
+        mae = self.MAE(y_hat, y)
         self.log("val_loss", loss, prog_bar=True, on_step=True)
         self.log("val_r2", r2, prog_bar=True, on_step=True)
+        self.log("val_MAE",mae , prog_bar=True, on_step=True)
         return {"loss": loss, "log": {"val_loss": loss, "val_r2": r2}}
 
     def test_step(self, batch, batch_idx):
@@ -122,7 +127,9 @@ class BandGap(pl.LightningModule):
         y_hat = self(x)
         loss = self.loss(y_hat, y)
         r2 = self.r2score(y_hat, y)
+        mae = self.MAE(y_hat, y)
         self.log("test_loss", loss, prog_bar=True, on_step=True)
         self.log("test_r2", r2, prog_bar=True, on_step=True)
+        self.log("test_MAE",mae , prog_bar=True, on_step=True)
         return {"loss": loss, "log": {"test_loss": loss, "test_r2": r2}}
     

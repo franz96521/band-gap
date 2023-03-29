@@ -372,5 +372,6 @@ def showBoxels(molecule):
                     z.append(k)
                     color.append(molecule[i,j,k].sum())
     # print(set(color))
-    fig = px.scatter_3d(x=x, y=y, z=z, color=color)
+    fig = px.scatter_3d(x=x, y=y, z=z, color=color, height=1000)
+
     fig.show()
