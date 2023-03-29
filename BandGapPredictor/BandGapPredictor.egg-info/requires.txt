@@ -1,0 +1,8 @@
+plotly
+torch
+matplotlib
+numpy
+pybel
+torchmetrics
+pytorch_lightning
+path

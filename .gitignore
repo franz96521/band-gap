@@ -5,3 +5,6 @@ __pycache__/
 *.pth
 instant-ngp/
 instant-ngp2/
+checkpoints/
+.ipynb_checkpoints/
+.vscode/
