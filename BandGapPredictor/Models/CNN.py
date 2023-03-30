@@ -228,7 +228,7 @@ class CNNModelBigSkip(nn.Module):
             x12 = self.conv_layer12(x11)
             
             x13 = x12.view(x12.size(0), -1)
-            print(x12.shape)
+            # print(x12.shape)
             x14 = self.linear1(x13,x12)
             x15 = self.linear2(x14,x11)
             x16 = self.linear3(x15,x10)
