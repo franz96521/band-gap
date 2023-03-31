@@ -1,7 +1,0 @@
-README.md
-setup.py
-BandGapPredictor.egg-info/PKG-INFO
-BandGapPredictor.egg-info/SOURCES.txt
-BandGapPredictor.egg-info/dependency_links.txt
-BandGapPredictor.egg-info/requires.txt
-BandGapPredictor.egg-info/top_level.txt

@@ -23,6 +23,7 @@ import pytorch_lightning as pl
 class BandGap(pl.LightningModule):
     def __init__(self, lr=1e-3,model=None):
         super(BandGap,self).__init__()
+        print("Model Initialized")
         self.lr = lr
         self.save_hyperparameters()        
         self.loss = RMSELoss()
