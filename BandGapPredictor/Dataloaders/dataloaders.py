@@ -35,7 +35,7 @@ class InMemoryDataModule(pl.LightningDataModule):
         self.val_size = int(len(data)*.2)
         self.test_size = len(data) - self.train_size - self.val_size
         self.train_data, self.val_data, self.test_data = None, None, None
-
+        self.setup()
     def setup(self, stage=None):
         self.train_data, self.val_data, self.test_data = torch.utils.data.random_split(
             self.data, [self.train_size, self.val_size,   self.test_size])

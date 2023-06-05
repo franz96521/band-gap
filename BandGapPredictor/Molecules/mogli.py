@@ -497,7 +497,7 @@ def export(molecule, file_name, width=500, height=500,
     _camera = camera
     camerapos = camera[0]
     # Create the GR3 scene
-    gr3.setbackgroundcolor(255, 255, 255, 0)
+    gr3.setbackgroundcolor(0, 0, 0, 0)
     _set_gr3_camera()
     _create_gr3_scene(molecule, show_bonds,circleScale=scale)
     glEnable(GL_DEPTH_TEST)
